@@ -1,1 +1,5 @@
 print('what the heck were you thinking????')
+a=input("??????")
+print(a,",really?")
+print('why do you say that?')
+print('that is mean')
