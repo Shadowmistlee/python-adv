@@ -36,7 +36,7 @@ from tkinter import *
 def get_weather():
     api_key = "2f7671995fd280c1b8c10843d66b3f93"
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    city_name = input('enter city name')
+    city_name = city_info.get()
     units = "metric"
     lang = "zh_tw"
 
@@ -66,7 +66,7 @@ windows = Tk()
 windows.title("My Weather")
 
 put_city = Label(windows, text="city:")
-put_city.pack
+put_city.pack()
 
 put_temp = Label(windows, text="temp:")
 put_temp.pack()
