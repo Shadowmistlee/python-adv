@@ -1,5 +1,5 @@
 import requests, json
-
+import matplotlib.pyplot as plt
 api_key = "2f7671995fd280c1b8c10843d66b3f93"
 base_url = "https://api.openweathermap.org/data/2.5/onecall?"
 lat = "25"
@@ -16,10 +16,21 @@ send_url += "&lang" + lang
 print("%s\n" % send_url)
 response = requests.get(send_url)
 info = json.loads(response.text)
-
+'''
 if "lat" in info.keys():
         for i in range(7):
             temps = info["daily"][i]["temp"]["day"]
             print("Day%d Temp=%s c" % (i, temps))
 else:
+    print(" Request Fail ")
+'''
+try:
+    temp_days = []
+    if info["lat"] != "":
+        for i in range(7):
+            temp_days.append(info["daily"][i]["temp"]["day"])
+        
+        plt.plot(range(1, 8), temp_days)
+        plt.show()
+except:
     print(" Request Fail ")
