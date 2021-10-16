@@ -53,12 +53,15 @@ def get_weather():
     if "main" in info.keys():
         temp_info = info["main"]["temp"]
         weather_info = info["weather"][0]["description"]
+        humidity_info = info["main"]["humidity"]
         print("City = " + city_name)
         put_city.config(text="City = " + city_name)
         print("Temperature = " + str(temp_info))
         put_temp.config(text="Temperature = " + str(temp_info))
         print("Description = " + str(weather_info))
         put_disc.config(text="Description = " + str(weather_info))
+        print("humidity = " + str(humidity_info))
+        put_humid.config(text="humidity = " + str(humidity_info))
     else:
         print(" City Not Found ")
 
@@ -73,6 +76,9 @@ put_temp.pack()
 
 put_disc = Label(windows, text="disc:")
 put_disc.pack()
+
+put_humid = Label(windows, text="humidity")
+put_humid.pack()
 
 city_info = Entry(windows)
 city_info.pack()
