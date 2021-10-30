@@ -73,25 +73,14 @@ def get_weather():
 windows = Tk()
 windows.title("My Weather")
 
-put_city = Label(windows, text="city:")
-put_city.pack()
-
-put_temp = Label(windows, text="temp:")
-put_temp.pack()
-
-put_disc = Label(windows, text="disc:")
-put_disc.pack()
-
-put_humid = Label(windows, text="humidity")
-put_humid.pack()
-
-put_windspeed = Label(windows, text ="wind speed")
-put_windspeed.pack()
+city = Label(windows, text = "請輸入", font=("Arial", 12))
 
 city_info = Entry(windows)
 city_info.pack()
 
-btn = Button(windows, text='get weather', command=get_weather)
+status = Label(windows, text=" ")
+status.pack
+btn = Button(windows, text='get aqi& pm2.5', command=get_weather)
 btn.pack()
 
 windows.mainloop()
