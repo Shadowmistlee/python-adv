@@ -1,3 +1,4 @@
+from numpy import uint
 import requests, json
 import matplotlib.pyplot as plt
 api_key = "2f7671995fd280c1b8c10843d66b3f93"
@@ -13,6 +14,7 @@ send_url += "&lon=" + lon
 send_url += "&exclude=" + exclude
 send_url += "&appid=" + api_key
 send_url += "&lang" + lang
+send_url += "&units" + units
 print("%s\n" % send_url)
 response = requests.get(send_url)
 info = json.loads(response.text)

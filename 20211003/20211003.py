@@ -68,7 +68,7 @@ def get_weather():
         
         
     else:
-        print(" City Not Found ")
+        print("city not found")
 
 windows = Tk()
 windows.title("My Weather")
