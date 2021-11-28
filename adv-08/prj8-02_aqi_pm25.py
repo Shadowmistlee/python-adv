@@ -1,8 +1,6 @@
 import numpy as np
-import json,requests
+import json, requests
 import matplotlib.pyplot as plt
-
-
 
 from tkinter import *
 
@@ -17,9 +15,10 @@ send_url += "offset=" + offset
 send_url += "&limit=" + limit
 send_url += "&api_key=" + api_key
 city = ""
-    
+
 response = requests.get(send_url)
 info = response.json()
+
 
 def get_weather():
     city = pos_info.get()
@@ -35,7 +34,8 @@ def get_weather():
                 aqi_pm2_5.append(int(info["records"][i]["PM2.5"]))
         show_info = ""
         for i in range(len(aqi_value)):
-            show_info += ("%s AQI=%d PM2.5=%d\n" % (aqi_posit[i], aqi_value[i], aqi_pm2_5[i]))
+            show_info += ("%s AQI=%d PM2.5=%d\n" %
+                          (aqi_posit[i], aqi_value[i], aqi_pm2_5[i]))
 
         status.config(text=show_info)
         plt.plot(aqi_posit, aqi_value, "c--.", label="AQI")
@@ -47,7 +47,7 @@ def get_weather():
 windows = Tk()
 windows.title("My Weather")
 
-pos = Label(windows, text = "請輸入", font=("Arial", 12))
+pos = Label(windows, text="請輸入", font=("Arial", 12))
 pos.pack()
 
 pos_info = Entry(windows)
@@ -56,13 +56,7 @@ pos_info.pack()
 status = Label(windows, text=" ")
 status.pack()
 
-btn = Button(windows, text='get aqi& pm2.5', command=get_weather,color=#ffff00)
+btn = Button(windows, text='get aqi& pm2.5', command=get_weather)
 btn.pack()
 
 windows.mainloop()
-
-
-
-
-
-
