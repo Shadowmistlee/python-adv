@@ -19,7 +19,7 @@ def get_video():
 
 
 windows = Tk()
-windows.title("???")
+windows.title("video")
 
 pos = Label(windows, text="enter link")
 pos.grid(row=0, column=0)
