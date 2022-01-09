@@ -5,10 +5,9 @@ from tkinter import *
 
 
 def cut():
-    if os.path.isfile(
-            "C:/Users/Xavier/Desktop/youtube download/nevergonnaclip.mp4"):
+    if os.path.isfile("C:/Users/Xavier/Desktop/youtube download/poor-guy.mp4"):
         clip = VideoFileClip(
-            "C:/Users/Xavier/Desktop/youtube download/nevergonna.mp4")
+            "C:/Users/Xavier/Desktop/youtube download/poor-guy.mp4")
         start = pos_info.get()
         end = status_info.get()
 
@@ -23,6 +22,9 @@ def cut():
             i += 1
             new_path = base_path + new_file + str(i) + ".mp4"
         clip.write_videofile(new_path)
+        if (state.get()):
+            print("checkval = True")
+            clip.write_gif(base_path + new_file + str(i) + ".gif")
     else:
         exit()
 
@@ -34,7 +36,7 @@ ent = Label(windows, text="enter name")
 ent.grid(row=0, column=0)
 
 ent_info = Entry(windows)
-ent.grid(row=0, column=1)
+ent_info.grid(row=0, column=1)
 
 pos = Label(windows, text="enter start")
 pos.grid(row=1, column=0)

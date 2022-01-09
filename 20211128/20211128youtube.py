@@ -12,26 +12,32 @@ def get_video():
     length = len(video)
     result = video.filter(progressive=True, subtype="mp4", res="720p")
     print(result[0])
-    load_name = "C:/Users/Xavier/Desktop/youtube download/" + status_info.get(
-    ) + ".mp4"
+    load_name = "D:/youtube download/" + status_info.get() + filename_info.get(
+    )
     result[0].download(filename=load_name)
     print("download finished")
 
 
 windows = Tk()
-windows.title("video")
+windows.title("yt影片下載器")
+
+filename = Label(windows, text="enter file name")
+filename.grid(row=8, column=0)
+
+filename_info = Entry(windows)
+filename_info.grid(row=8, column=1)
 
 pos = Label(windows, text="enter link")
 pos.grid(row=0, column=0)
 
 pos_info = Entry(windows)
-pos_info.grid(row=1, column=0)
+pos_info.grid(row=0, column=1)
 
 status = Label(windows, text="enter name")
 status.grid(row=2, column=0)
 
 status_info = Entry(windows)
-status_info.grid(row=3, column=0)
+status_info.grid(row=2, column=1)
 
 btn = Button(windows, text="get video", command=get_video)
 btn.grid(row=5, column=0)
@@ -42,7 +48,7 @@ name.grid(row=6, column=0)
 v_length = Label(windows, text="length")
 v_length.grid(row=7, column=0)
 
-windows.geometry("300x150")
+windows.geometry("300x200")
 windows.mainloop()
 
 # print("video name", yt.title)
