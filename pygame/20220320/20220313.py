@@ -37,6 +37,9 @@ font = pygame.font.Font(typeface, 24)
 title = font.render('start', True, (0, 0, 0))
 tit_w = title.get_width()
 tit_h = title.get_height()
+title2 = font.render('slow', True, (0, 0, 0))
+tit2_w = title2.get_width()
+tit2_h = title2.get_height()
 snow_list = []
 for i in range(100):
     x_site = random.randrange(0, bg_x)
@@ -48,6 +51,7 @@ snow_list[1][0]
 clock = pygame.time.Clock()
 act = False
 cnt = 0
+speed = False
 while True:
     if cnt <= 10:
         cnt += 1
@@ -55,7 +59,20 @@ while True:
         cnt = 0
         x_shift = random.randint(-5, 5)
 
-    clock.tick(50)
+    if speed == True:
+        clock.tick(20)
+        title2 = font.render('slow', True, (
+            0,
+            0,
+            0,
+        ))
+    else:
+        clock.tick(70)
+        title2 = font.render('fast', True, (
+            0,
+            0,
+            0,
+        ))
     screen.blit(background, (0, 0))
     mouse_pos = pygame.mouse.get_pos()
     for event in pygame.event.get():
@@ -64,6 +81,8 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if check_click(mouse_pos, 0, 0, tit_w, tit_h):
                 act = not (act)
+            if check_click(mouse_pos, 100, 0, int(tit2_w) + 100, int(tit2_h)):
+                speed = not (speed)
 
     if act == True:
         title = font.render('Start', True, (
@@ -71,12 +90,14 @@ while True:
             0,
             0,
         ))
+
     else:
         title = font.render('Stop', True, (
             0,
             0,
             0,
         ))
+
         #pygame.draw.circle(screen, (255, 255, 255), (x_site, y_site), radius)
         for snow in snow_list:
             pygame.draw.circle(screen, (255, 255, 255), (snow[0], snow[1]),
@@ -84,8 +105,9 @@ while True:
             snow[0] += snow[2]
             snow[1] += snow[3]
             if snow[1] > bg_y or snow[0] > bg_x:
-                snow[1] = random.randrange(-10, -1)
+                snow[1] = random.randrange(-1000, -1)
                 snow[0] = random.randrange(0, bg_x)
     screen.blit(title, (0, 0))
+    screen.blit(title2, (100, 0))
 
     pygame.display.update()
