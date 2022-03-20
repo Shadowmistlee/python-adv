@@ -90,7 +90,7 @@ while True:
             0,
             0,
         ))
-
+        pygame.mixer.music.unpause()
     else:
         title = font.render('Stop', True, (
             0,
