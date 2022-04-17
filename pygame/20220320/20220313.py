@@ -67,7 +67,7 @@ while True:
             0,
         ))
     else:
-        clock.tick(70)
+        clock.tick(99999)
         title2 = font.render('fast', True, (
             0,
             0,
