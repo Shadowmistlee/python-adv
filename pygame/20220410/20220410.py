@@ -33,6 +33,7 @@ BLACK = (0, 0, 0)
 screen = pygame.display.set_mode([bg_x, bg_y])
 gophers = pygame.image.load(
     "C:/Users/Xavier/Desktop/python-adv/pygame/20220410/Gophers150.png")
+gophers2 = pygame.image.load("Gophers2_150.png")
 pygame.display.set_caption("Gameeeeeeeee")
 typeface = pygame.font.get_default_font()
 sur = pygame.Surface([bg_x, bg_y])  #繪製背景容器
@@ -52,9 +53,11 @@ end_sur = end_font.render(str(times), True, (255, 0, 0))
 score = 0
 ham1 = pygame.image.load("Hammer1.png")
 ham2 = pygame.image.load("Hammer2.png")
+pygame.mixer.music.load("hit.mp3")
 while True:
     clock.tick(30)
     hammer = ham2
+    hitsur = gophers2
     mouse_pos = pygame.mouse.get_pos()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -66,6 +69,7 @@ while True:
                 if times < times_max:
                     tick = max_tick + 1
                     score = score + 1
+                    hitsur = gophers2
         if event.type == pygame.MOUSEMOTION:
             mpos = pygame.mouse.get_pos()
     if times > times_max:
@@ -98,6 +102,12 @@ while True:
         (mpos[0] - hammer.get_width() / 2, mpos[1] - hammer.get_height() / 2))
     screen.blit(sur, (0, 0))
     screen.blit(title, (10, 10))
+    sur.blit(
+        hitsur,
+        (pos[0] - hitsur.get_width() / 2, pos[1] - hitsur.get_height() / 2))
+    sur.blit(
+        hammer,
+        (mpos[0] - hitsur.get_width() / 2, mpos[1] - hammer.get_height() / 2))
     if hammer == ham1:
         time.sleep(0.1)
     pygame.display.flip()
