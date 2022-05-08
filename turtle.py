@@ -1,7 +1,5 @@
-import turtle
+import turtle as t
 
-t = turtle.Turtle()
-b = 1
 t.speed(0)
 n = 1
 while True:

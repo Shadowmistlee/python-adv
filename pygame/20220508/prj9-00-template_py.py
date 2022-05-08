@@ -10,7 +10,8 @@ from pygame.locals import *
 #===初始化設定開始===
 pygame.init()
 clock = pygame.time.Clock()
-timer = 0
+timer = 1
+clock.tick(100000)
 #***初始化設定結束***
 
 #===載入圖片開始===
