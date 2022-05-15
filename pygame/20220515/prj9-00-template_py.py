@@ -12,7 +12,7 @@ from pygame.locals import *
 pygame.init()
 clock = pygame.time.Clock()
 timer = 1
-clock.tick(100000)
+clock.tick(1)
 MISSLE_MAX = 200
 #***初始化設定結束***
 
@@ -40,7 +40,7 @@ bg_x = img_bg.get_width()
 bg_y = img_bg.get_height()
 bg_size = (bg_x, bg_y)
 
-pygame.display.set_caption(" Galaxy Launcher")
+pygame.display.set_caption("BRO WTF")
 screen = pygame.display.set_mode(bg_size)
 #***遊戲視窗設定結束***
 
