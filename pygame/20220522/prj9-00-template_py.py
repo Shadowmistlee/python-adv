@@ -196,8 +196,9 @@ def move_enemy2(win):
 def is_hit(x1, y1, x2, y2, r):
     global score
     if ((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)) < (r * r):
-        return True
         score += 1
+        return True
+
     else:
         return False
 
